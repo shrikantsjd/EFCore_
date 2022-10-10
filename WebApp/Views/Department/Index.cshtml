@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DAL.Department>
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+<a asp-action="Create" asp-controller="Department"  class="btn btn-primary">Add</a>
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+    @foreach(var item in Model)
+    {<tr>
+         <td>
+            @item.DepartmentId
+        </td>
+        <td>
+            @item.Name
+        </td> 
+        <td>
+            <a asp-action="Edit" asp-controller="Department" asp-route-id="@item.DepartmentId" class="btn btn-primary">Edit</a>
+            <a asp-action="Delete" asp-controller="Department" asp-route-id="@item.DepartmentId" onclick="return confirm('Are you sure want to delete')" class="btn btn-danger">Delete</a>
+        </td>
+   <td>
+
+   </td>
+    </tr>
+        }
+
+</table>

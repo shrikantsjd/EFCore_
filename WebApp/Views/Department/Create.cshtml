@@ -1,0 +1,17 @@
+﻿@model DAL.Department
+
+@{
+    ViewData["Title"] = Model != null ? "Edit" : "Create";
+}
+
+<h1>@ViewData["Title"]</h1>
+<form asp-action="@ViewData["Title"]" method="post">
+    <input type="hidden" asp-for="DepartmentId" />
+        <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a asp-action="Index" asp-controller="Department" class="btn btn-warning">Cancel</a>
+</form>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DAL.Employee>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4 class="text-center text-uppercase">List of employee</h4>
+ <a asp-action="Create" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add New</a>  
+ <br/>
+ <br/>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Image</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EmployeeId</td>
+            <td>@item.Name</td>
+            <td>@item.Address</td>
+            
+            <td>      <img class="rounded-circle" height="40" width="40" src="@Url.Content(item.ImagePath)" />
+</td>
+            <td>
+                <a asp-action="Edit" asp-controller="Employee" asp-route-id="@item.EmployeeId" class="btn btn-primary">Edit</a>
+                <a asp-action="Delete" asp-controller="Employee" asp-route-id="@item.EmployeeId" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+
+             
+  
+  
+ 
